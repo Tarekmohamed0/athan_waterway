@@ -1,0 +1,31 @@
+workflows:
+  windows-release:
+    name: Windows Release Build
+    instance_type: windows_x2
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - name: Flutter doctor
+        script: flutter doctor -v
+
+      - name: Enable Windows desktop
+        script: flutter config --enable-windows-desktop
+
+      - name: Get dependencies
+        script: flutter pub get
+
+      - name: Clean build
+        script: flutter clean
+
+      - name: Build Windows RELEASE
+        script: flutter build windows --release
+      - name: Create MSIX
+        script: |
+          dart pub global activate msix
+          flutter pub run msix:create
+
+    artifacts:
+      - build/windows/runner/Release/**
+      - build/windows/msix/*.msix
