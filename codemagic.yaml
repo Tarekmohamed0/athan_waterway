@@ -26,5 +26,5 @@ workflows:
         script: dart run msix:create
 
     artifacts:
-      - build/windows/runner/Release/**
-      - build/windows/msix/*.msix
+      - build/windows/x64/runner/Release/**
+      - build/windows/x64/runner/Release/*.msix
