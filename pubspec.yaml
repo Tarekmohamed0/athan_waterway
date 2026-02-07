@@ -64,6 +64,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
 
+  # MSIX package for creating Windows installer
+  msix: ^3.16.8
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -104,3 +107,14 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+# MSIX Configuration for Windows packaging
+msix_config:
+  display_name: Athan Waterway
+  publisher_display_name: Athan Waterway
+  identity_name: com.athanwaterway.app
+  msix_version: 1.0.0.0
+  logo_path: windows/runner/resources/app_icon.ico
+  capabilities: internetClient, musicLibrary
+  publisher: CN=Athan Waterway
+  install_certificate: false

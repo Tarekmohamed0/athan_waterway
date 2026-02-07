@@ -21,10 +21,9 @@ workflows:
 
       - name: Build Windows RELEASE
         script: flutter build windows --release
+
       - name: Create MSIX
-        script: |
-          dart pub global activate msix
-          flutter pub run msix:create
+        script: dart run msix:create
 
     artifacts:
       - build/windows/runner/Release/**
